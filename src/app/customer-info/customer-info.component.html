@@ -1,46 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-   
-    <style>
-        h2 {
-         text-align: center;
-         font-family: Arial, Helvetica, sans-serif;
-         font-size: large;
-         color: blueviolet;
-        }
-        p {
-       /* border-top-style: solid;
-       border-right-style: solid;
-       border-bottom-style: solid;
-       border-left-style: solid;
-       border-bottom-style: solid; */
-       padding-left: 100px;
-       text-align: center;
-       font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-       font-size :x-large;
-       color:crimson;
-       /* background: url(https://cdn.pixabay.com/photo/2017/08/12/10/13/background-2633962_960_720.jpg) no-repeat center center; */
-       /* background-size: cover; */
-       /* margin: 25px 50px 75px; */
-}
-    </style>
-</head>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
-    <p>
-        Customer Id :    {{(customer | async)?.cusId}} <br/>
-        Customer Name :  {{(customer | async)?.cusName}}  <br/>
-        Customer Email : {{(customer | async)?.cusEmail}}  <br/>
-        Customer Mobile : {{(customer | async)?.cusMobile}}<br/>
-        Customer Date Of Birth : {{(customer | async)?.cusDob}} <br/>
-        Customer Address :  {{(customer | async)?.cusAddress}}<br/>
-    </p>
+
+<div class="w3-container">
+
+ 
+
+  <div class="w3-card-4" align="center" style="width:100%;">
+    <header class="w3-container w3-blue">
+      <h1>Customer Info</h1>
+    </header>
+
+    <div class="w3-container" align="center">
+      
+            <p>
+                    Customer Id :    {{(customer | async)?.cusId}} <br/>
+                    Customer Name :  {{(customer | async)?.cusName}}  <br/>
+                    Customer Email : {{(customer | async)?.cusEmail}}  <br/>
+                    Customer Mobile : {{(customer | async)?.cusMobile}}<br/>
+                    Customer Date Of Birth : {{(customer | async)?.cusDob}} <br/>
+                    Customer Address :  {{(customer | async)?.cusAddress}}<br/>
+                </p>
+            
+    </div>
+
+    <footer class="w3-container w3-blue">
+      <h5></h5>
+    </footer>
+  </div>
+</div>
+
 </body>
 </html>
+   
 
 
 

@@ -23,6 +23,7 @@ export class VendorLoginComponent implements OnInit {
     this.vendorService.validateVendor(this.userName,this.passWord).subscribe( x => {
     if(x=="1") {
       localStorage.setItem("user",this.userName);
+      console.log("Vendor Success");
       this.router.navigate(["/vendor-dashboard"]);
     } else {
       this.count++;

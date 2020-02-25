@@ -12,8 +12,12 @@ export class VendorAcceptAndRejectComponent implements OnInit {
   status : string;
   result : string;
 
-  constructor(private _vendorService : VendorService) { }
+  constructor(private _vendorService : VendorService) { 
+    this.orderId=parseInt(localStorage.getItem("cancelOrderId"));
+    this.vendId=parseInt(localStorage.getItem("cancelVenId"));
+  }
   acceptOrReject() {
+    
     this._vendorService.acceptOrReject(this.orderId,this.vendId,this.status).subscribe(x => {
       this.result=x;
     })

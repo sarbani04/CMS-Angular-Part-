@@ -41,8 +41,8 @@ showVendor() : Observable<Vendor[]>{
   http.get("http://localhost:8080/MLP173/api/vendor").
   map((res : Response)=> res.json());
 }
-acceptOrReject(orderId : number, vendId : number, status : String) : Observable<string> {
-  return this.http.post("http://localhost:8080/MLP173/api/orderdetail/acceptOrRejectOrder/"+orderId + "/" + vendId + "/" +status,null).
+acceptOrReject(ordId : number, vendId : number, status : String) : Observable<string> {
+  return this.http.post("http://localhost:8080/MLP173/api/orderdetail/acceptOrRejectOrder/"+ordId + "/" + vendId + "/" +status,null).
   map((res : Response) => res.text());
 }
 

@@ -1,4 +1,32 @@
-<p>customer-pending-history works!</p>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f7aaec;
+  }
+
+</style>
+</head>
+<body>
+    <input
+    type="text"
+    class="form-control"
+    name="search" 
+    placeholder="Search.."
+    [(ngModel)]="searchString"
+  />
 
 <table border="3">
         <tr>
@@ -13,10 +41,13 @@
             <th>VENDOR ID</th>
             <th>WALLET TYPE</th>
             <th>ORDER COMMENTS</th>
+            <th>CANCEL ORDER</th>
+            <th>SELECT</th>
+
             
 
         </tr>
-        <tr *ngFor="let u of orders | async">
+        <tr *ngFor="let u of orders | async | customerFilter :  {ordId: searchString, ordComments:searchString, walType:searchString,ordQuantity:searchString}; let i = index">
             <td>{{u.ordId}}</td>
             <td>{{u.ordTime}}</td>
             <td>{{u.ordAmount}}</td>
@@ -28,5 +59,13 @@
             <td>{{u.venId}}</td>
             <td>{{u.walType}}</td> 
             <td>{{u.ordComments}}</td> 
+            <td>
+                <button  class ="button" style="vertical-align:middle" md-button [routerLink]="['/dashBoard',{outlets: {'data': ['customerCancelOrder']}}]"><span>Cancel Order</span> </button> &nbsp;&nbsp;&nbsp;&nbsp; 
+            </td>
+            <td>
+                <input type="checkbox" name="chkOrdid" (change)="checkIfAllSelected(u.ordId)">{{u.ordId}}
+            </td>
         </tr>
     </table>
+    </body>
+    <input type="button" value="Cancel All" (click)="cancelMe()" />

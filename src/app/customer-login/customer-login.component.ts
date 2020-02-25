@@ -24,6 +24,7 @@ export class CustomerLoginComponent implements OnInit {
       this.customerService.validateCustomer(this.userName,this.passWord).subscribe( x => {
       if(x=="1") {
         localStorage.setItem("user",this.userName);
+        console.log("Customer Success" +x);
         this.router.navigate(["/dashBoard"]);
       } else {
         this.count++;
